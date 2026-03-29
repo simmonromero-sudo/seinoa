@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyectos realizados por S.E.I. Noa - Galería de trabajos en Salta y Jujuy">
+    <title>Nuestros Trabajos - S.E.I. Noa</title>
+
+    <!-- Mismo stack de estilos que index -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        /* ===== HERO CON IMAGEN ===== */
+        .proyectos-hero {
+            height: 60vh;
+            min-height: 420px;
+            background: url("images/hero-electrician.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Overlay oscuro elegante */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                rgba(10, 20, 35, 0.78),
+                rgba(10, 20, 35, 0.6)
+            );
+        }
+
+        /* Contenido */
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+            max-width: 8000px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .proyectos-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(196,30,58,0.18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .proyectos-hero-badge {
+            display: inline-block;
+            background: rgba(196,30,58,0.18);
+            border: 1px solid rgba(196,30,58,0.4);
+            color: #f87a8a;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .proyectos-hero h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 0.8rem;
+            line-height: 1.15;
+        }
+
+        .proyectos-hero h1 .highlight { color: var(--color-primary); }
+
+        .proyectos-hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* Líneas decorativas (igual que index) */
+        .proyectos-hero .hero-lines { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+        .proyectos-hero .energy-line { position: absolute; height: 1px; background: linear-gradient(90deg, transparent, rgba(196,30,58,0.35), transparent); animation: sweep linear infinite; }
+        .proyectos-hero .line-1 { width: 60%; top: 35%; left: -60%; animation-duration: 7s; }
+        .proyectos-hero .line-2 { width: 40%; top: 60%; left: -40%; animation-duration: 9s; animation-delay: 2s; }
+
+        /* ---- BREADCRUMB ---- */
+        .breadcrumb {
+            background: var(--color-light);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+        }
+
+        .breadcrumb-inner a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-inner a:hover { text-decoration: underline; }
+        .breadcrumb-inner i { font-size: 0.7rem; color: #aaa; }
+
+        /* ---- FILTROS ---- */
+        .filtros-bar {
+            position: sticky;
+            top: 110px; /* logo 78px + padding top/bottom 2×16px */
+            z-index: 200;
+            background: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .filtros-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filtros-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.25rem;
+        }
+
+        .filtro-btn {
+            padding: 0.5rem 1.3rem;
+            background: var(--color-light);
+            border: 2px solid transparent;
+            color: var(--color-text);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            font-family: var(--font-primary);
+        }
+
+        .filtro-btn:hover,
+        .filtro-btn.active {
+            background: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+        }
+
+        /* Contador de resultados */
+        .results-count {
+            margin-left: auto;
+            font-size: 0.82rem;
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        /* ---- SECCIÓN PROYECTOS ---- */
+        .proyectos-section {
+            background: var(--color-light);
+            padding: 3rem 0 4rem;
+        }
+
+        /* Encabezado de grupo (Salta / Jujuy) */
+        .grupo-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        .grupo-header:first-child { margin-top: 0; }
+
+        .grupo-header h2 {
+            font-size: 1.6rem;
+            color: var(--color-secondary);
+            white-space: nowrap;
+        }
+
+        .grupo-header h2 span { color: var(--color-primary); }
+
+        .grupo-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), transparent);
+            border-radius: 2px;
+        }
+
+        /* Sub-encabezado de obra (ej: Planta de Transferencia) */
+        .obra-header {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #2d3748 100%);
+            border-radius: 12px 12px 0 0;
+            padding: 1.4rem 2rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .obra-header + .proyecto-card { border-radius: 0 0 12px 12px; margin-top: 0; }
+
+        .obra-header i {
+            color: var(--color-primary);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .obra-header h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .obra-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.82rem;
+            margin: 0.2rem 0 0;
+        }
+
+        /* ---- TARJETA DE PROYECTO ---- */
+        .proyecto-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .proyecto-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        /* Alternar imagen izq/der */
+        .proyecto-card.img-izquierda .proyecto-img { order: -1; }
+
+        .proyecto-img {
+            overflow: hidden;
+            position: relative;
+            background: #1a2e44;
+            min-height: 515px;
+            /* sin min-height: la imagen ocupa exactamente el alto que tiene el texto */
+        }
+
+        .proyecto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            position: absolute; /* se estira para llenar toda la celda */
+            inset: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .proyecto-card:hover .proyecto-img img { transform: scale(1.04); }
+
+        /* Placeholder cuando no hay imagen */
+        .proyecto-img-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #1a2e44, #0d1b2a);
+            color: rgba(255,255,255,0.25);
+        }
+
+        .proyecto-img-placeholder i { font-size: 3rem; }
+        .proyecto-img-placeholder span { font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+        /* Badge de zona sobre la imagen */
+        .zona-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* Contenido de la tarjeta */
+        .proyecto-info {
+            padding: 2rem 2.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .proyecto-categoria {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.4rem;
+        }
+
+        .proyecto-titulo {
+            font-size: 1.25rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .proyecto-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .proyecto-lista {
+            list-style: none;
+            margin-bottom: 1.2rem;
+        }
+
+        .proyecto-lista li {
+            padding: 0.35rem 0 0.35rem 1.4rem;
+            font-size: 0.88rem;
+            color: var(--color-text);
+            position: relative;
+            border-bottom: 1px solid #f3f4f6;
+            line-height: 1.4;
+        }
+
+        .proyecto-lista li:last-child { border-bottom: none; }
+
+        .proyecto-lista li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* Tags */
+        .proyecto-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-top: 0.8rem;
+        }
+
+        .tag {
+            background: var(--color-light);
+            color: var(--color-text-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* ---- SECCIÓN GALERÍA ---- */
+        .galeria-section {
+            background: #fff;
+            padding: 4rem 0;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        /* Tamaño uniforme para todos los items */
+        .galeria-item {
+            position: relative;
+            height: 240px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .galeria-item:hover img { transform: scale(1.06); }
+
+        /* Marco rojo que se difumina hacia adentro */
+        .galeria-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            /* sombra interna roja - invisible por defecto */
+            box-shadow: inset 0 0 0px 0px rgba(196, 30, 58, 0);
+            transition: box-shadow 0.4s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .galeria-item:hover::before {
+            /* marco rojo que se difumina ~30px hacia adentro */
+            box-shadow: inset 0 0 30px 8px rgba(196, 30, 58, 0.75);
+        }
+
+        /* Franja inferior con nombre — siempre visible pero pequeña */
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* gradiente negro que sube solo un poco */
+            background: linear-gradient(to top,
+                rgba(10, 10, 10, 0.88) 0%,
+                rgba(10, 10, 10, 0.55) 50%,
+                transparent 100%);
+            padding: 1rem 1rem 0.8rem;
+            color: #fff;
+            z-index: 3;
+            /* arranca casi oculta (solo asoma un borde) */
+            transform: translateY(70%);
+            transition: transform 0.38s ease, background 0.38s ease;
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            transform: translateY(0);
+        }
+
+        .galeria-overlay h4 {
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+            color: #fff;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .galeria-overlay p {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.78);
+            margin: 0;
+        }
+
+        /* Placeholders de galería */
+        .galeria-placeholder {
+            background: linear-gradient(135deg, #1a2e44, #0d1b2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .galeria-placeholder i {
+            font-size: 2.5rem;
+        }
+
+        .galeria-placeholder span {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* ---- CTA FINAL ---- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #9b1631 100%);
+            padding: 4.5rem 2rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn-white {
+            display: inline-block;
+            padding: 14px 36px;
+            background: #fff;
+            color: var(--color-primary);
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .cta-btn-white:hover {
+            background: var(--color-secondary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            .proyectos-hero h1 { font-size: 2rem; }
+
+            .filtros-bar { top: 62px; }
+
+            .proyecto-card {
+                grid-template-columns: 1fr;
+            }
+
+            .proyecto-card.img-izquierda .proyecto-img { order: 0; }
+
+            .proyecto-img { min-height: 220px; } /* en mobile sí necesita altura mínima porque el grid es de 1 col */
+
+            .proyecto-info { padding: 1.5rem; }
+
+            .obra-header { padding: 1rem 1.2rem; }
+            .obra-header h3 { font-size: 1rem; }
+
+            .filtros-inner { gap: 0.5rem; }
+            .results-count { margin-left: 0; width: 100%; }
+
+            .cta-section h2 { font-size: 1.6rem; }
+        }
+
+        @media (max-width: 480px) {
+            .galeria-grid { grid-template-columns: 1fr; }
+            .filtro-btn { padding: 0.4rem 1rem; font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================================================
+         NAVEGACIÓN — mismo que index
+         ================================================ -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo" id="logo-home" style="cursor:pointer;" title="Volver al inicio">
+                <img src="images/logo_sei_artistic.png" alt="SEI Logo" class="logo-img">
+                <span class="logo-text">S.E.I. Noa</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html#home"     class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="index.html#servicios-anchor" class="nav-link">Servicios</a></li>
+                <li class="nav-item"><a href="index.html#nosotros" class="nav-link">Nosotros</a></li>
+                <li class="nav-item"><a href="proyectos.html"               class="nav-link active">Nuestros Trabajos</a></li>
+                <li class="nav-item"><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================================================
+         HERO
+         ================================================ -->
+        <section class="proyectos-hero">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <h1>Nuestros <span class="highlight">Trabajos</span></h1>
+                <p>Experiencia comprobada en instalaciones eléctricas industriales en el NOA</p>
+            </div>
+        </section>
+
+    <!-- ================================================
+         BREADCRUMB
+         ================================================ -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <a href="index.html">Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Nuestros Trabajos</span>
+        </div>
+    </div>
+
+    <!-- ================================================
+         FILTROS (sticky)
+         ================================================ -->
+    <div class="filtros-bar">
+        <div class="filtros-inner">
+            <span class="filtros-label"><i class="fas fa-filter"></i> Filtrar:</span>
+            <button class="filtro-btn active" data-filter="todos">Todos</button>
+            <button class="filtro-btn" data-filter="salta">
+                <i class="fas fa-map-marker-alt"></i> Salta
+            </button>
+            <button class="filtro-btn" data-filter="jujuy">
+                <i class="fas fa-map-marker-alt"></i> Jujuy
+            </button>
+            <span class="results-count" id="results-count"></span>
+        </div>
+    </div>
+
+    <!-- ================================================
+         PROYECTOS
+         ================================================ -->
+    <section class="proyectos-section">
+        <div class="container">
+
+            <!-- ======= GRUPO: SALTA ======= -->
+            <div class="grupo-header" data-group="salta">
+                <h2><span>📍</span> Provincia de Salta</h2>
+                <div class="grupo-line"></div>
+            </div>
+
+
+
+            <!-- Proyectos 2-4: FRIGORÍFICO BERMEJO (agrupados) -->
+            <div class="obra-header" data-category="salta">
+                <i class="fas fa-industry"></i>
+                <div>
+                    <h3>Frigorífico Bermejo S.A.</h3>
+                    <p>Pichanal — Salta</p>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="proyecto-card img-izquierda" data-category="salta" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Sector Sebería</span>
+                    <ul class="proyecto-lista">
+                        <li>Montaje y configuración de arranque suave Schneider Electric</li>
+                        <li>Circuitos de protección para motor de 35 HP del digestor 1</li>
+                        <li>Montaje de arranque estrella-triángulo</li>
+                        <li>Circuitos de protección para prensa manual</li>
+                        <li>Reconexionado y prueba del circuito estrella-triángulo del digestor 2</li>
+                        <li>Montaje de interruptor 600 A en armario principal</li>
+                        <li>Bandejas portacables y conductores de alimentación para digestores</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Arranques</span>
+                        <span class="tag">Industrial</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/Bermejo/WhatsApp Image 2026-03-19 at 4.41.35 PM.jpeg" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="proyecto-card" data-category="salta" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Sala de máquinas</span>
+                    <ul class="proyecto-lista">
+                        <li>Tendido de 50 m de cable Sintenax para compresor a tornillo SULLAIR 7500</li>
+                        <li>Acondicionamiento de banco de capacitores de 630 kVA para corrección de cos φ</li>
+                        <li>Acondicionamiento de tableros varios conforme normativa SRT</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Sala de máquinas</span>
+                        <span class="tag">Normativa SRT</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/Bermejo/FB_máquinas1.jpeg" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Proyecto 4 -->
+            <div class="proyecto-card img-izquierda" data-category="salta" style="border-radius:0 0 12px 12px; margin-bottom:1.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Cabaña Rotonda de Pichanal</span>
+                    <ul class="proyecto-lista">
+                        <li>Acondicionamiento de tableros e instalaciones internas</li>
+                        <li>Instalación de luminarias externas y marquesinas del exterior</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Luminarias</span>
+                        <span class="tag">Tableros</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/Bermejo/FB_Cabaña1.jpeg" loading="lazy">
+                </div>
+            </div>
+
+            <!-- ======= GRUPO: JUJUY ======= -->
+            <div class="grupo-header" data-group="jujuy">
+                <h2><span>📍</span> Provincia de Jujuy</h2>
+                <div class="grupo-line"></div>
+            </div>
+
+            <!-- Proyecto 1: Escuela -->
+            <div class="obra-header" data-category="jujuy">
+                <i class="fas fa-industry"></i>
+                <div>
+                    <h3>Cooperativa Escuela</h3>
+                    <p>Libertador General San Martin — Jujuy</p>
+                </div>
+            </div>
+            <div class="proyecto-card" data-category="jujuy" style="border-radius:0 0 12px 12px; margin-bottom:1.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Area de administración</span>
+                    <ul class="proyecto-lista">
+                        <li>Instalación de tablero principal</li>
+                        <li>Diseño e instalación de tableros secundarios</li>
+                        <li>Montaje de conductores</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Mantenimiento</span>
+                        <span class="tag">Tableros</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/escuela/admin.jpeg" loading="lazy">
+                </div>
+            </div>
+
+            <div class="proyecto-card img-izquierda" data-category="jujuy" style="border-radius:0 0 12px 12px; margin-bottom:1.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Area de aulas</span>
+                    <ul class="proyecto-lista">
+                    <li>Canalización completa</li>
+                    <li>Montaje de conductores</li>
+                    <li>Instalación de tableros</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Luminarias</span>
+                        <span class="tag">Tableros</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/escuela/aula.jpeg" loading="lazy">
+                </div>
+            </div>
+
+            <div class="proyecto-card" data-category="jujuy" style="border-radius:0 0 12px 12px; margin-bottom:1.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Area de dependencias</span>
+                    <ul class="proyecto-lista">
+                        <li>Instalación y montaje de conductores</li>
+                        <li>Colocación de tablero</li>
+                        <li>Puesta a tierra de toda la instalación de la escuelaada</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Mantenimiento</span>
+                        <span class="tag">Tableros</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/escuela/dep.jpeg" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Proyecto 1: LEDESMA (standalone) -->
+            <div class="obra-header" data-category="jujuy">
+                <i class="fas fa-industry"></i>
+                <div>
+                    <h3>LEDESMA S.A.A.I — Central Termoeléctrica</h3>
+                    <p>Jujuy</p>
+                </div>
+            </div>
+            <div class="proyecto-card" data-category="jujuy" style="border-radius:0 0 12px 12px; margin-bottom:1.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Mantenimiento de tableros eléctricos</span>
+                    <ul class="proyecto-lista">
+                        <li>Limpieza y acondicionamiento de tableros</li>
+                        <li>Cambio de elementos de operación y protección dañados</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Mantenimiento</span>
+                        <span class="tag">Tableros</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/Ledesma/Ledesma1.jpeg" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Sub-obra: Planta de Transferencia -->
+            <div class="obra-header" data-category="jujuy">
+                <i class="fas fa-industry"></i>
+                <div>
+                    <h3>Planta de Transferencia y Clasificación de Residuos Sólidos Urbanos (GIRSU)</h3>
+                    <p>Libertador General San Martín — Jujuy</p>
+                </div>
+            </div>
+
+            <!-- Proyecto 5 -->
+            <div class="proyecto-card" data-category="jujuy" style="border-radius:0 0 0 0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Salón de usos múltiples</span>
+                    <h3 class="proyecto-titulo">Instalación eléctrica completa</h3>
+                    <ul class="proyecto-lista">
+                        <li>Tendido de cañerías</li>
+                        <li>Colocación de cajas</li>
+                        <li>Colocación de luminarias</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                        <span class="tag">Luminarias</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/girsu_1.jpg" alt="Girsu - Imagen 1" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Proyecto 6 -->
+            <div class="proyecto-card img-izquierda" data-category="jujuy" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Vestuarios</span>
+                    <h3 class="proyecto-titulo">Instalación eléctrica y sensores</h3>
+                    <ul class="proyecto-lista">
+                        <li>Tendido de cañerías</li>
+                        <li>Colocación de cajas</li>
+                        <li>Montaje de sensores</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                        <span class="tag">Sensores</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/girsu_2.jpg" alt="Girsu - Imagen 2" loading="lazy">
+                    <span class="zona-badge">Jujuy</span>
+                </div>
+            </div>
+
+            <!-- Proyecto 7 -->
+            <div class="proyecto-card" data-category="jujuy" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Oficina de báscula</span>
+                    <h3 class="proyecto-titulo">Instalación eléctrica</h3>
+                    <ul class="proyecto-lista">
+                        <li>Tendido de cañerías</li>
+                        <li>Colocación de cajas</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/girsu_3.jpg" alt="Girsu - Imagen 3" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Proyecto 8 -->
+            <div class="proyecto-card img-izquierda" data-category="jujuy" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Galpón de clasificación</span>
+                    <h3 class="proyecto-titulo">Instalación eléctrica y automatización</h3>
+                    <ul class="proyecto-lista">
+                        <li>Montaje de bandejas portacables</li>
+                        <li>Tendido de cañerías</li>
+                        <li>Circuitos de alimentación de luminarias y extractores</li>
+                        <li>Montaje de luminarias</li>
+                        <li>Montaje de cañerías y circuitos de oficinas internas</li>
+                        <li>Tendido eléctrico para tablero de control de cinta transportadora</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                        <span class="tag">Automatización</span>
+                        <span class="tag">Luminarias</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/girsu_4.jpg" alt="Girsu - Imagen 4" loading="lazy">
+                    <span class="zona-badge">Jujuy</span>
+                </div>
+            </div>
+
+            <!-- Proyecto 9 -->
+            <div class="proyecto-card" data-category="jujuy" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Sala de tableros</span>
+                    <h3 class="proyecto-titulo">Montaje y automatización de planta</h3>
+                    <ul class="proyecto-lista">
+                        <li>Montaje de tablero principal y secundarios</li>
+                        <li>Bandejas portacables y tendido de conductores entre tableros</li>
+                        <li>Conexionado y automatización de la planta</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                        <span class="tag">Tableros</span>
+                        <span class="tag">Automatización</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/girsu_5.jpg" alt="Girsu - Imagen 5" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Proyecto 10 -->
+            <div class="proyecto-card img-izquierda" data-category="jujuy" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Tolva</span>
+                    <h3 class="proyecto-titulo">Canalización en altura</h3>
+                    <ul class="proyecto-lista">
+                        <li>Montaje de cañeria y tendido eléctrico</li>
+                        <li>Iluminación en parte superior</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                        <span class="tag">Altura</span>
+                        <span class="tag">Luminarias</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/trabajos/WhatsApp Image 2026-03-19 at 4.34.57 PM.jpeg" alt="Girsu - Imagen 6" loading="lazy">
+                    <span class="zona-badge">Jujuy</span>
+                </div>
+            </div>
+
+            <!-- Proyecto 11 -->
+            <div class="proyecto-card" data-category="jujuy" style="border-radius:0; margin-bottom:0.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Acometida principal</span>
+                    <h3 class="proyecto-titulo">Montaje y acondicionamiento</h3>
+                    <ul class="proyecto-lista">
+                        <li>Montaje de interruptor principal</li>
+                        <li>Acondicionamiento de tablero</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                        <span class="tag">Tableros</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/girsu_7.jpg" alt="Girsu - Imagen 7" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Proyecto 12 -->
+            <div class="proyecto-card img-izquierda" data-category="jujuy" style="border-radius:0 0 12px 12px; margin-bottom:1.5rem;">
+                <div class="proyecto-info">
+                    <span class="proyecto-categoria">Planta general</span>
+                    <h3 class="proyecto-titulo">Iluminación perimetral, puesta a tierra y videovigilancia</h3>
+                    <ul class="proyecto-lista">
+                        <li>Colocación de jabalinas y medición de puesta a tierra</li>
+                        <li>Conexionado y montaje de luminarias de perímetro</li>
+                        <li>Montaje y conexionado de cámaras de vigilancia</li>
+                    </ul>
+                    <div class="proyecto-tags">
+                        <span class="tag">Jujuy</span>
+                        <span class="tag">Seguridad</span>
+                        <span class="tag">Iluminación</span>
+                    </div>
+                </div>
+                <div class="proyecto-img">
+                    <img src="images/girsu_8.jpg" alt="Girsu - Imagen 8" loading="lazy">
+                    <span class="zona-badge">Jujuy</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================
+         GALERÍA DE FOTOS
+         ================================================ -->
+    <section class="galeria-section">
+        <div class="container">
+            <h2 class="section-title">Galería de Imágenes</h2>
+            <p class="section-subtitle">Nuestros trabajos en fotos</p>
+
+            <div class="galeria-grid">
+                <!--
+                    CÓMO AGREGAR FOTOS:
+                    Reemplazá cada bloque .galeria-item con:
+                    <div class="galeria-item">
+                        <img src="images/tu-foto.jpg" alt="Descripción">
+                        <div class="galeria-overlay">
+                            <h4>Título</h4>
+                            <p>Descripción corta</p>
+                        </div>
+                    </div>
+                -->
+
+                <!-- Placeholder 1 -->
+                    <div class="galeria-item">
+                        <img src="images/galeria/WhatsApp Image 2026-03-07 at 19.59.31 (1).jpg" alt="Descripción">
+                        <div class="galeria-overlay">
+                            <h4>Colocación cartel, parador Punto Medio</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                <!-- Placeholder 2 -->
+                    <div class="galeria-item">
+                        <img src="images/galeria/WhatsApp Image 2026-03-07 at 20.04.10 (1).jpg" alt="Descripción">
+                        <div class="galeria-overlay">
+                            <h4>Reparación de Luminarias en Altura</h4>
+                            <p></p>
+                        </div>
+                </div>
+                <!-- Placeholder 3 -->
+                    <div class="galeria-item">
+                        <img src="images/galeria/WhatsApp Image 2026-03-07 at 20.02.05.jpg" alt="Descripción">
+                        <div class="galeria-overlay">
+                            <h4>Pintura en Altura, en Edificio "Antonio I"</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                <!-- Placeholder 4 -->
+                    <div class="galeria-item">
+                        <img src="images/galeria/Foto4_GAL_Banco deCapacitores.jpg" alt="Descripción">
+                        <div class="galeria-overlay">
+                            <h4>Analisis y diseño de banco de capacitores</h4>
+                        </div>
+                    </div>
+                <!-- Placeholder 5 -->
+                    <div class="galeria-item">
+                        <img src="images/galeria/Foto5_GAL_Seccionadora.jpg" alt="Descripción">
+                        <div class="galeria-overlay">
+                            <h4>Calculo y colocación de seccionadora</h4>
+                        </div>
+                    </div>
+                <!-- Placeholder 6 -->
+                 <div class="galeria-item">
+                    <img src="images/galeria/Foto6_GAL_Instalcion Completa Escuela.jpg" alt="Descripción">
+                    <div class="galeria-overlay">
+                        <h4>Instalación troncal, Cooperativa Escuela</h4>                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         CTA FINAL
+         ================================================ -->
+    <section class="cta-section">
+        <h2>¿Tenés un proyecto en mente?</h2>
+        <p>Contactanos para un presupuesto sin compromiso</p>
+        <a href="index.html#contacto" class="cta-btn-white">
+            <i class="fas fa-paper-plane"></i> Solicitar Presupuesto
+        </a>
+    </section>
+
+    <!-- ================================================
+         FOOTER — mismo que index
+         ================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SEI - Soluciones Eléctricas Integrales</h4>
+                    <p>Energía que Impulsa el Progreso de su Empresa</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html#home">Inicio</a></li>
+                        <li><a href="index.html#nosotros">Nosotros</a></li>
+                        <li><a href="proyectos.html">Nuestros Trabajos</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociales</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com"  target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com"  target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SEI - Soluciones Eléctricas Integrales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/543886577977?text=Hola,%20necesito%20información%20sobre%20servicios%20eléctricos"
+       class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JS compartido -->
+    <script src="js/main.js"></script>
+
+    <script>
+        // ---- Filtros ----
+        const filtroBtns  = document.querySelectorAll('.filtro-btn');
+        const proyectos   = document.querySelectorAll('.proyecto-card');
+        const grupoHeaders = document.querySelectorAll('.grupo-header');
+        const obraHeaders  = document.querySelectorAll('.obra-header');
+        const countEl      = document.getElementById('results-count');
+
+        function updateCount(visible) {
+            countEl.textContent = visible === proyectos.length
+                ? `${visible} proyectos`
+                : `${visible} de ${proyectos.length} proyectos`;
+        }
+
+        filtroBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filtroBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filtro = btn.getAttribute('data-filter');
+                let visible = 0;
+
+                proyectos.forEach(p => {
+                    const mostrar = filtro === 'todos' || p.getAttribute('data-category') === filtro;
+                    p.style.display = mostrar ? 'grid' : 'none';
+                    if (mostrar) visible++;
+                });
+
+                // Mostrar/ocultar encabezados de grupo
+                grupoHeaders.forEach(g => {
+                    const group = g.getAttribute('data-group');
+                    g.style.display = (filtro === 'todos' || filtro === group) ? 'flex' : 'none';
+                });
+
+                // Mostrar/ocultar encabezados de obra
+                obraHeaders.forEach(o => {
+                    const cat = o.getAttribute('data-category');
+                    o.style.display = (filtro === 'todos' || filtro === cat) ? 'flex' : 'none';
+                });
+
+                updateCount(visible);
+            });
+        });
+
+        // Inicializar conteo
+        updateCount(proyectos.length);
+
+        // ---- Logo: scroll to top ----
+        document.getElementById('logo-home').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>

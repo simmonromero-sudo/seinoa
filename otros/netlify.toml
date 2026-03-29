@@ -1,0 +1,9 @@
+# Configuración para Netlify
+[build]
+  command = "echo 'Sitio estático - sin build necesario'"
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

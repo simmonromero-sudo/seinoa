@@ -1,0 +1,37 @@
+==================================================
+   ÍNDICE DEL PROYECTO: S.E.I. NOA (v1.8)
+==================================================
+
+Este archivo detalla la estructura y las mejoras aplicadas en la versión 1.8 del sitio web institucional.
+
+--- ESTRUCTURA DE ARCHIVOS ---
+/ (Raíz)
+├── index.html          -> Página principal con todas las secciones actualizadas.
+├── proyectos.html      -> Galería detallada de trabajos realizados (Incluye GIRSU).
+├── css/
+│   ├── styles.css      -> Estilos principales (Ajuste tamaño vanguardia).
+│   └── responsive.css  -> Ajustes para móviles.
+├── js/
+│   └── main.js         -> Carrusel automático (5s) y redirección de galería.
+└── images/
+    ├── girsu_1.jpg a 8.jpg -> 8 fotos reales de la planta de residuos.
+    ├── avatar_marcelo_color.png -> Avatar de Marcelo con toques de color.
+    ├── avatar_raul_final.png   -> Avatar original proporcionado por el usuario.
+    └── (Otros activos de versiones anteriores).
+
+--- MEJORAS APLICADAS EN v1.8 ---
+1. VANGUARDIA: Imagen del hidroelevador reducida un 20% para mejor equilibrio visual.
+2. CARRUSEL: 
+   - Reordenado: "Mantenimiento en Altura" ahora es la segunda opción.
+   - Automático: Desplazamiento cada 5 segundos.
+   - Botón: Renombrado a "Nuestros Servicios Especializados".
+3. AVATARES:
+   - Marcelo: Ahora con detalles en color profesional.
+   - Raúl: Se utiliza la imagen exacta proporcionada por el usuario.
+4. GALERÍA GIRSU:
+   - Integración de 8 fotos reales en el orden solicitado (Girsu1 a Girsu8).
+   - Título actualizado: "Planta de Transferencia y Clasificación de Residuos Sólidos Urbanos (GIRSU)".
+   - Texto de encabezado: "Acá Algunos de nuestros trabajos en Fotos".
+5. NAVEGACIÓN: El botón "Galería" ahora redirige directamente a la sección de proyectos.
+
+==================================================

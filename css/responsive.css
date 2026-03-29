@@ -1,0 +1,688 @@
+/* ========================================
+   ESTILOS RESPONSIVE
+   Autor: Manus AI
+   Descripción: Media queries para diferentes tamaños de pantalla
+   ======================================== */
+
+/* ========================================
+   TABLETS (768px - 1024px)
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .carousel-container {
+        flex-direction: column;
+    }
+
+    .carousel-slide {
+        max-width: 100%;
+    }
+
+    .slide-content {
+        flex-direction: row;
+    }
+
+    .slide-image-wrapper {
+        flex: 0 0 45%;
+    }
+
+    .slide-services {
+        flex: 1 1 55%;
+    }
+
+    .company-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .machine-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   DISPOSITIVOS MÓVILES (480px - 767px)
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Navegación */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--color-white);
+        width: 100%;
+        text-align: center;
+        box-shadow: var(--shadow);
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-item {
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Hero */
+    .hero-intro {
+        padding: 5rem 1.2rem 3rem;
+        min-height: 100svh;
+    }
+
+    .hero-rest {
+        padding: 2rem 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero-trust {
+        gap: 0.8rem;
+    }
+
+    .hero-cta-group {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero-cta-group .cta-button{
+        flex: 1;
+        text-align: center;
+    }
+
+    .hero-image{
+    overflow: hidden;
+    margin-bottom:30px;
+    }
+
+    /* Carrusel */
+    .carousel-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .carousel-slide {
+        min-height: 450px;
+        max-width: 100%;
+    }
+
+    .slide-content {
+        flex-direction: column;
+    }
+
+    .slide-image-wrapper {
+        flex: 0 0 40%;
+        min-height: 200px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .slide-services {
+        flex: 1 1 60%;
+        padding: 1.5rem;
+    }
+
+    /* Información de empresa */
+    .company-info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .info-card {
+        padding: 1.5rem;
+    }
+
+    .info-card i {
+        font-size: 2rem;
+    }
+
+    /* Sección Nosotros */
+    .about {
+        padding: 2rem 0;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-priorities {
+        padding: 1.5rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sección Trabajos */
+    .projects {
+        padding: 2rem 0;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .featured-machine {
+        padding: 1.5rem;
+    }
+
+    .machine-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sección Contacto */
+    .contact {
+        padding: 2rem 0;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-container,
+    .contact-info {
+        padding: 1.5rem;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Tipografía */
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+        padding: 1.5rem;
+    }
+}
+
+/* ========================================
+   TELÉFONOS PEQUEÑOS (hasta 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+    /* Navegación */
+    .navbar-container {
+        padding: 0.8rem 15px;
+    }
+
+    .navbar-logo {
+        gap: 5px;
+    }
+
+    .logo-img {
+        height: 30px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    /* Hero */
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Carrusel */
+    .carousel-slide img {
+        height: 150px;
+    }
+
+    .carousel-section h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Información de empresa */
+    .info-card {
+        padding: 1rem;
+    }
+
+    .info-card i {
+        font-size: 1.5rem;
+    }
+
+    .info-card h3 {
+        font-size: 1rem;
+    }
+
+    .info-card p {
+        font-size: 0.85rem;
+    }
+
+    /* Sección Nosotros */
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .about-text h3 {
+        font-size: 1.1rem;
+    }
+
+    .values-list li {
+        font-size: 0.9rem;
+    }
+
+    .priority-item {
+        gap: 1rem;
+    }
+
+    .priority-icon i {
+        font-size: 1.5rem;
+    }
+
+    .team-member {
+        padding: 1.5rem;
+    }
+
+    .member-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .member-image i {
+        font-size: 2.5rem;
+    }
+
+    /* Sección Trabajos */
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .project-image {
+        height: 150px;
+    }
+
+    .project-info {
+        padding: 1rem;
+    }
+
+    .project-info h4 {
+        font-size: 1rem;
+    }
+
+    .project-info p {
+        font-size: 0.85rem;
+    }
+
+    .featured-machine {
+        padding: 1rem;
+    }
+
+    .machine-features li {
+        font-size: 0.9rem;
+    }
+
+    /* Sección Contacto */
+    .contact-form-container,
+    .contact-info {
+        padding: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+
+    .info-item {
+        gap: 1rem;
+    }
+
+    .info-item i {
+        font-size: 1.2rem;
+    }
+
+    .info-item h4 {
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.9rem;
+    }
+
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.85rem;
+    }
+
+    /* Tipografía general */
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 0.95rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 98%;
+        margin: 30% auto;
+        padding: 1rem;
+    }
+
+    .modal-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .close {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   ORIENTACIÓN PAISAJE (LANDSCAPE)
+   ======================================== */
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .carousel-slide img {
+        height: 150px;
+    }
+
+    .company-info {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .info-card {
+        padding: 1rem;
+    }
+
+    .info-card i {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   IMPRESIÓN (PRINT)
+   ======================================== */
+
+@media print {
+    .navbar,
+    .carousel-controls,
+    .filter-buttons,
+    .contact-form-container,
+    .live-chat-section,
+    .footer {
+        display: none;
+    }
+
+    .hero {
+        background: none;
+    }
+
+    .section-title::after {
+        background-color: #000;
+    }
+
+    .project-card,
+    .info-card {
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    body {
+        font-size: 12pt;
+        color: #000;
+    }
+}
+
+/* ========================================
+   PANTALLAS MUY GRANDES (1920px+)
+   ======================================== */
+
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    
+
+    .hero-content{
+        max-width: 1600px;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 6rem;
+    }
+
+    .hero-img{
+        width: 1000px;
+
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .carousel-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+#logros-title{
+    color: #eee;
+    text-align: center;
+    font-size: 2rem;
+}
+/* ===== PANTALLAS GRANDES (1920px+) ===== */
+@media (min-width: 1600px) {
+
+    .container {
+        max-width: 1500px;
+    }
+
+    .proyectos-hero h1 {
+        font-size: 4rem;
+    }
+
+    .proyectos-hero p {
+        font-size: 1.3rem;
+    }
+
+    .proyecto-info {
+        padding: 2.5rem 3rem;
+    }
+
+    .proyecto-titulo {
+        font-size: 1.5rem;
+    }
+
+    .proyecto-desc {
+        font-size: 1rem;
+    }
+
+    .proyecto-lista li {
+        font-size: 0.95rem;
+    }
+
+    .galeria-item {
+        height: 280px;
+    }
+}

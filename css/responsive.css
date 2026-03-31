@@ -611,12 +611,12 @@
 
     .hero-content {
         max-width: 1300px;
-        grid-template-columns: 1fr 1.2fr;
+        grid-template-columns: 1fr 1fr;  /* ← cambio, antes 1fr 1.2fr */
         gap: 4rem;
     }
 
     .hero-img {
-        max-width: 560px;
+        max-width: 100%;        /* ← cambio, antes 560px */
         width: 100%;
     }
 

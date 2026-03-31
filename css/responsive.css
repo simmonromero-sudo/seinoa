@@ -601,34 +601,46 @@
 }
 
 /* ========================================
-   PANTALLAS MUY GRANDES (1920px+)
+   PANTALLAS GRANDES
    ======================================== */
-/* ===== 1080p (1920x1080) ===== */
-/* ===== 1080p (1920x1080) ===== */
-@media (min-width: 1080px) and (max-width: 1919px) {
+
+/* ===== 1080p - 1599px ===== */
+@media (min-width: 1080px) and (max-width: 1599px) {
     .container {
         max-width: 1300px;
     }
 
     .hero-intro {
-        padding: 6rem 4rem 5rem;
+        min-height: 100vh;
+        padding: 0 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-content {
         max-width: 1300px;
+        width: 100%;
         grid-template-columns: 1fr 1.3fr;
         gap: 5rem;
         align-items: center;
     }
 
-    .hero-img {
-        max-width: 100%;
+    .hero-image {
         width: 100%;
-        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-img-wrapper {
         width: 100%;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 
     .hero-text h1 {
@@ -636,7 +648,7 @@
     }
 
     .carousel-slide {
-        max-width: 1100px;
+        max-width: 1400px;
         min-height: 460px;
     }
 
@@ -652,58 +664,30 @@
     }
 }
 
-@media (min-width: 1920px) {
-    .container {
-        max-width: 1400px;
-    }
-
-    
-
-    .hero-content{
-        max-width: 1600px;
-        grid-template-columns: 1fr 1.4fr;
-        gap: 6rem;
-    }
-
-    .hero-img{
-        width: 1000px;
-
-    }
-
-    h2 {
-        font-size: 3rem;
-    }
-
-    h3 {
-        font-size: 2rem;
-    }
-
-    .hero-text h1 {
-        font-size: 3.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .carousel-container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-#logros-title{
-    color: #eee;
-    text-align: center;
-    font-size: 2rem;
-}
-/* ===== PANTALLAS GRANDES (1920px+) ===== */
-@media (min-width: 1600px) {
-
+/* ===== 1600px - 1919px ===== */
+@media (min-width: 1600px) and (max-width: 1919px) {
     .container {
         max-width: 1500px;
+    }
+    .carousel-slide {
+        max-width: 1400px; /* Aquí controlas qué tan ancho se verá en tu monitor */
+        min-height: 500px;
+    }
+
+    .slide-image-wrapper {
+        flex: 0 0 50%;
+        min-height: 500px;
+        max-height: 500px;
+    }
+
+    .slide-services {
+        flex: 1 1 50%;
+        padding: 4rem;
+    }
+    /* 👆 HASTA AQUÍ 👆 */
+
+    .proyectos-hero h1 {
+        font-size: 4rem;
     }
 
     .proyectos-hero h1 {
@@ -733,4 +717,52 @@
     .galeria-item {
         height: 280px;
     }
+    
+}
+
+/* ===== 1920px+ ===== */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .hero-content {
+        max-width: 1600px;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 6rem;
+    }
+
+    .hero-img {
+        width: 1000px;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .carousel-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+#logros-title {
+    color: #eee;
+    text-align: center;
+    font-size: 2rem;
 }

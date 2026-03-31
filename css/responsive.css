@@ -604,20 +604,35 @@
    PANTALLAS MUY GRANDES (1920px+)
    ======================================== */
 /* ===== 1080p (1920x1080) ===== */
+/* ===== 1080p (1920x1080) ===== */
 @media (min-width: 1080px) and (max-width: 1919px) {
     .container {
         max-width: 1300px;
     }
 
+    .hero-intro {
+        padding: 6rem 4rem 5rem;
+    }
+
     .hero-content {
         max-width: 1300px;
-        grid-template-columns: 1fr 1fr;  /* ← cambio, antes 1fr 1.2fr */
-        gap: 4rem;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 5rem;
+        align-items: center;
     }
 
     .hero-img {
-        max-width: 100%;        /* ← cambio, antes 560px */
+        max-width: 100%;
         width: 100%;
+        height: auto;
+    }
+
+    .hero-img-wrapper {
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem;
     }
 
     .carousel-slide {

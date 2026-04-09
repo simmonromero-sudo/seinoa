@@ -354,7 +354,7 @@
 
     /* Carrusel */
     .carousel-slide img {
-        height: 150px;
+        height: 200px;
     }
 
     .carousel-section h2 {
@@ -524,6 +524,9 @@
 
     .close {
         font-size: 1.5rem;
+    }
+    #hidro-image{
+        min-height: 70px;
     }
 }
 
